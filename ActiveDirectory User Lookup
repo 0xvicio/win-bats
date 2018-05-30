@@ -1,0 +1,28 @@
+@echo off
+cls
+ECHO  Welcome to the Name Lookup Program. Script made on my sleep by Vicio.
+ECHO  ======================================================================
+
+:main
+  SET /p user="Please, enter username: "
+  net user %user% /domain 
+  GOTO again
+
+:again
+  set /p loop="Would you want another entry? Y/N: "
+
+IF '%loop%' == 'Y' GOTO main
+IF '%loop%' == 'y' GOTO main
+IF '%loop%' == 'N' GOTO end
+IF '%loop%' == 'n' GOTO end
+
+IF '%loop%' == ELSE GOTO arbitrary
+
+:arbitrary
+	ECHO "Please, enter Y/N"
+	GOTO again
+
+:end 
+  ECHO Thanks for using the program. Goodbye
+  pause
+  exit
